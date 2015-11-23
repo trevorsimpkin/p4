@@ -14,3 +14,24 @@
 Route::get('/', function () {
     return view('welcome');
 });
+# Show login form
+Route::get('/login', 'Auth\AuthController@getLogin');
+
+# Process login form
+Route::post('/login', 'Auth\AuthController@postLogin');
+
+# Process logout
+Route::get('/logout', 'Auth\AuthController@getLogout');
+
+# Show registration form
+Route::get('/register', 'Auth\AuthController@getRegister');
+
+# Process registration form
+Route::post('/register', 'Auth\AuthController@postRegister');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/books/create', 'BookController@getCreate');
+    Route::post('/books/create', 'BookController@postCreate');
+
+    Route::get('/books/edit/{id?}', 'BookController@getEdit');
+    Route::post('/books/edit', 'BookController@postEdit');
+});
