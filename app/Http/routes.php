@@ -35,3 +35,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/books/edit/{id?}', 'BookController@getEdit');
     Route::post('/books/edit', 'BookController@postEdit');
 });
+
+Route::get('/user/{user?}/create', 'ClimbController@getCreate');
+Route::get('/user/{user?}/create', 'ClimbController@postCreate');
+Route::get('/user/{user?}/edit', 'ClimbController@getEdit');
+Route::get('/user/{user?}/edit', 'ClimbController@postEdit');

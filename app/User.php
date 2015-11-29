@@ -1,6 +1,6 @@
 <?php
 
-namespace Project4;
+namespace p4;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -36,4 +36,9 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function climbs()
+    {
+        return $this->belongsToMany('\App\Climb')->withTimestamps();
+    }
 }

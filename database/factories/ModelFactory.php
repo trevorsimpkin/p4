@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(Project4\User::class, function (Faker\Generator $faker) {
+$factory->define(p4\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
