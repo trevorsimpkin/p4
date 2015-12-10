@@ -29,6 +29,7 @@ class CreateClimbsTable extends Migration
             $table->string('date_climbed');
             $table->string('location');
             $table->string('description');
+            $table->string('type');
             $table->string('pic');
             $table->string('administrator');
             $table->string('mountain_project_link');
@@ -46,6 +47,6 @@ class CreateClimbsTable extends Migration
      */
     public function down()
     {
-        Schema:drop('climbs');
+        Schema::drop('climbs');
     }
 }

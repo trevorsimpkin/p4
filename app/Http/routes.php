@@ -40,3 +40,18 @@ Route::get('/user/{user?}/create', 'ClimbController@getCreate');
 Route::get('/user/{user?}/create', 'ClimbController@postCreate');
 Route::get('/user/{user?}/edit', 'ClimbController@getEdit');
 Route::get('/user/{user?}/edit', 'ClimbController@postEdit');
+Route::get('/confirm-login-worked', function() {
+
+    # You may access the authenticated user via the Auth facade
+    $user = Auth::user();
+
+    if($user) {
+        echo 'You are logged in.';
+        dump($user->toArray());
+    } else {
+        echo 'You are not logged in.';
+    }
+
+    return;
+
+});

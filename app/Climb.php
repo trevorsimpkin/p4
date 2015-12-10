@@ -8,6 +8,6 @@ class Climb extends Model
 {
     public function users()
     {
-        return $this->belongsToMany('\App\User')->withTimestamps();
+        return $this->belongsToMany('\p4\User')->withTimestamps();
     }
 }

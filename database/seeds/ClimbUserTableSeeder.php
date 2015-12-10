@@ -12,27 +12,27 @@ class ClimbUserTableSeeder extends Seeder
     public function run()
     {
 
-        /**# First, create an array of all the books we want to associate tags with
+        # First, create an array of all the books we want to associate tags with
         # The *key* will be the book title, and the *value* will be an array of tags.
-        $books =[
-            'Jill' => ['novel','fiction','classic','wealth'],
-            'The Bell Jar' => ['novel','fiction','classic','women'],
+        $users =[
+            'Jill' => ['Blah Blah Climb','Crazy'],
+            'Jamal' => ['Crazy']
         ];
 
         # Now loop through the above array, creating a new pivot for each book to tag
-        foreach($books as $title => $tags) {
+        foreach($users as $username => $climbs) {
 
             # First get the book
-            $book = \p4\Book::where('title','like',$title)->first();
+            $user = \p4\User::where('username','LIKE',$username)->first();
 
             # Now loop through each tag for this book, adding the pivot
-            foreach($tags as $tagName) {
-                $tag = \p4\Tag::where('name','LIKE',$tagName)->first();
+            foreach($climbs as $climbName) {
+                $climb = \p4\Climb::where('title','LIKE',$climbName)->first();
 
                 # Connect this tag to this book
-                $book->tags()->save($tag);
+                $user->climbs()->save($climb);
             }
 
-        }*/
+        }
     }
 }
