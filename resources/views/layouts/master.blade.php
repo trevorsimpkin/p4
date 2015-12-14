@@ -7,21 +7,20 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="/../../favicon.ico">
 
     <title>
         @yield('title', 'Trevor Simpkin - DWA 15')
     </title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/../dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="/../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../dist/css/dashboard.css" rel="stylesheet">
-
+    <link href="/../dist/css/dashboard.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -47,13 +46,13 @@
                 <ul class="nav navbar-nav navbar-right">
                     @if(Auth::check())
                         <li><a href='/'>Home</a></li>
-                        <li><a href='/allClimbs'>Browse Climbs</a></li>
+                        <li><a href='/climbs'>Browse Climbs</a></li>
                         <li><a href='/logout'>Log out</a></li>
                         <li><a href='/help'>Help</a></li>
                     @else
                         <li><a href='/register'>Register</a></li>
                         <li><a href='/login'>Login</a></li>
-                        <li><a href='/allClimbs'>Browse Climbs</a></li>
+                        <li><a href='/climbs'>Browse Climbs</a></li>
                         <li><a href='/help'>Help</a></li>
                     @endif
                 </ul>
@@ -75,12 +74,11 @@
                 </ul>
                 <ul class="nav nav-sidebar">
                     @if(Auth::check())
-                        <li><a href='/allClimbs'>Browse Climbs</a></li>
-                        <li><a href='/createClimb'>Add Climb</a></li>
-                        <li><a href='/editClimb'>Edit Climb</a></li>
-                        <li><a href='/editUser'>Edit Profile</a></li>
+                        <li><a href='/climbs'>Browse Climbs</a></li>
+                        <li><a href='/user/{{Auth::user()->id}}'>Your Profile</a></li>
+                        <li><a href='/climbs/create'>Create a Climb</a></li>
                     @else
-                        <li><a href='/allClimbs'>Browse Climbs</a></li>
+                        <li><a href='/climbs'>Browse Climbs</a></li>
                     @endif
                 </ul>
                 <ul class="nav nav-sidebar">
@@ -97,7 +95,6 @@
                 @if(Session::get('flash_message') != null)
                     <div class="alert alert-info"><em>{{ Session::get('flash_message') }}</em></div>
                 @endif
-                <h1 class="page-header">Climb Keeper</h1>
                     @yield('content')
 
 
@@ -107,9 +104,9 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="/../../dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>
 </body>

@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@getIndex');
 # Show login form
 Route::get('/login', 'Auth\AuthController@getLogin');
 
@@ -25,33 +23,16 @@ Route::get('/logout', 'Auth\AuthController@getLogout');
 
 # Show registration form
 Route::get('/register', 'Auth\AuthController@getRegister');
-
+Route::get('/climbs', 'ClimbController@getIndex');
 # Process registration form
 Route::post('/register', 'Auth\AuthController@postRegister');
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/books/create', 'BookController@getCreate');
-    Route::post('/books/create', 'BookController@postCreate');
-
-    Route::get('/books/edit/{id?}', 'BookController@getEdit');
-    Route::post('/books/edit', 'BookController@postEdit');
-});
-
-Route::get('/user/{user?}/create', 'ClimbController@getCreate');
-Route::get('/user/{user?}/create', 'ClimbController@postCreate');
-Route::get('/user/{user?}/edit', 'ClimbController@getEdit');
-Route::get('/user/{user?}/edit', 'ClimbController@postEdit');
-Route::get('/confirm-login-worked', function() {
-
-    # You may access the authenticated user via the Auth facade
-    $user = Auth::user();
-
-    if($user) {
-        echo 'You are logged in.';
-        dump($user->toArray());
-    } else {
-        echo 'You are not logged in.';
-    }
-
-    return;
+    Route::get('/user/{id?}', 'UserController@getIndex');
+    Route::get('/climbs/create', 'ClimbController@getCreate');
+    Route::post('/climbs/create', 'ClimbController@postCreate');
+    Route::get('/climbs/edit/{id?}', 'ClimbController@getEdit');
+    Route::post('/climbs/edit', 'ClimbController@postEdit');
+    Route::get('/climbs/confirm-delete/{id?}', 'ClimbController@getConfirmDelete');
+    Route::get('/climbs/delete/{id?}', 'ClimbController@getDoDelete');
 
 });

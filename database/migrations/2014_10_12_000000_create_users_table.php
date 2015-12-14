@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             $table->string('climbing_style');
             $table->string('location');
+            $table->string('profile');
             $table->rememberToken();
             $table->timestamps();
         });

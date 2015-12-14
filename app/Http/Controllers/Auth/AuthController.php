@@ -7,6 +7,7 @@ use Validator;
 use p4\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Input;
 
 class AuthController extends Controller
 {
@@ -52,6 +53,7 @@ class AuthController extends Controller
             'username' => 'required|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
+            'profile' => 'image',
         ]);
     }
 
@@ -63,12 +65,26 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'username' => $data['username'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+
+        $fileName = 'generic.jpg';
+        if (Input::hasFile('profile')) {
+            if (Input::file('profile')->isValid()) {
+                $destinationPath = public_path('uploads/');
+                $extension = Input::file('profile')->getClientOriginalExtension();
+                $fileName = uniqid() . '.' . $extension;
+                \Input::file('profile')->move($destinationPath, $fileName);
+            }
+        }
+            return User::create([
+                'username' => $data['username'],
+                'email' => $data['email'],
+                'password' => bcrypt($data['password']),
+                'profile' => $fileName,
+                'climbing_style' => $data['climbing_style'],
+                'location' => $data['location'],
+            ]);
     }
+
     /**
      * Log the user out of the application.
      *

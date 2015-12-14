@@ -15,7 +15,7 @@
             @endforeach
         </ul>
     @endif
-    <form method='POST' action='/register'>
+    <form method='POST' action='/register' enctype='multipart/form-data'>
         {!! csrf_field() !!}
         <div class="form-group">
             <label for="email">Email address</label>
@@ -37,8 +37,8 @@
             <label for="climbing_style">Preffered Climbing Style</label>
             <select class="form-control" name='climbing_style' id="climbing_style">
                 <option value="bouldering">Bouldering</option>
-                <option value="dwfs">DWFS (Deep Water Free Solo)</option>
-                <option value="free solo">Free Solo</option>
+                <option value="dws">DWS (Deep Water Solo)</option>
+                <option value="free_solo">Free Solo</option>
                 <option value="sport">Sport</option>
                 <option value="trad">Traditional</option>
             </select>
@@ -54,8 +54,8 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="image_file">Upload a profile picture</label>
-            <input type="file" name='image_file' id="image_file">
+            <label for="profile">Upload a profile picture</label>
+            <input type="file" name='profile' id="profile">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>

@@ -7,142 +7,43 @@
 @stop
 
 @section('content')
-        @if(Auth::check())
-            <h2>Welcome!</h2>
-            <p>Start Adding climbs!</p>
-        @else
-            <h2>Welcome!</h2>
-            <p><a href = "/login"> Login</a> to start adding climbs!</p>
-            <p>Or browse what others are climbing!</p>
-        @endif
-        <h2 class="sub-header">Recently added climbs</h2>
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
+    <h1 class="page-header">Climb Keeper</h1>
+    @if(Auth::check())
+        <h2>Welcome, {{Auth::user()->username}}</h2>
+        <p>Browse climbs below or Add a new Climb!</p>
+    @else
+        <h2>Welcome!</h2>
+        <p><a href = "/login"> Login</a> to start adding climbs!</p>
+        <p>Or browse what others are climbing!</p>
+    @endif
+    <h3 class="sub-header">Recently added climbs</h3>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Difficulty</th>
+                <th>Type of Climb</th>
+                <th>Location</th>
+                <th>Safety Rating</th>
+                <th>Date Climbed</th>
+                <th>Administrator Username</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($climbs as $climb)
                 <tr>
-                    <th>username</th>
-                    <th>Climb</th>
-                    <th>Difficulty</th>
-                    <th>Location</th>
-                    <th>Date Added</th>
+                    <td><a href="/climbs/show/{{$climb->id}}">{{$climb->title}}</a></td>
+                    <td>{{$climb->difficulty}}</td>
+                    <td>{{$climb->type}}</td>
+                    <td>{{$climb->location}}</td>
+                    <td>{{$climb->safety_rating}}</td>
+                    <td>{{$climb->date_climbed}}</td>
+                    <td></td>
                 </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1,001</td>
-                    <td>Lorem</td>
-                    <td>ipsum</td>
-                    <td>dolor</td>
-                    <td>sit</td>
-                </tr>
-                <tr>
-                    <td>1,002</td>
-                    <td>amet</td>
-                    <td>consectetur</td>
-                    <td>adipiscing</td>
-                    <td>elit</td>
-                </tr>
-                <tr>
-                    <td>1,003</td>
-                    <td>Integer</td>
-                    <td>nec</td>
-                    <td>odio</td>
-                    <td>Praesent</td>
-                </tr>
-                <tr>
-                    <td>1,003</td>
-                    <td>libero</td>
-                    <td>Sed</td>
-                    <td>cursus</td>
-                    <td>ante</td>
-                </tr>
-                <tr>
-                    <td>1,004</td>
-                    <td>dapibus</td>
-                    <td>diam</td>
-                    <td>Sed</td>
-                    <td>nisi</td>
-                </tr>
-                <tr>
-                    <td>1,005</td>
-                    <td>Nulla</td>
-                    <td>quis</td>
-                    <td>sem</td>
-                    <td>at</td>
-                </tr>
-                <tr>
-                    <td>1,006</td>
-                    <td>nibh</td>
-                    <td>elementum</td>
-                    <td>imperdiet</td>
-                    <td>Duis</td>
-                </tr>
-                <tr>
-                    <td>1,007</td>
-                    <td>sagittis</td>
-                    <td>ipsum</td>
-                    <td>Praesent</td>
-                    <td>mauris</td>
-                </tr>
-                <tr>
-                    <td>1,008</td>
-                    <td>Fusce</td>
-                    <td>nec</td>
-                    <td>tellus</td>
-                    <td>sed</td>
-                </tr>
-                <tr>
-                    <td>1,009</td>
-                    <td>augue</td>
-                    <td>semper</td>
-                    <td>porta</td>
-                    <td>Mauris</td>
-                </tr>
-                <tr>
-                    <td>1,010</td>
-                    <td>massa</td>
-                    <td>Vestibulum</td>
-                    <td>lacinia</td>
-                    <td>arcu</td>
-                </tr>
-                <tr>
-                    <td>1,011</td>
-                    <td>eget</td>
-                    <td>nulla</td>
-                    <td>Class</td>
-                    <td>aptent</td>
-                </tr>
-                <tr>
-                    <td>1,012</td>
-                    <td>taciti</td>
-                    <td>sociosqu</td>
-                    <td>ad</td>
-                    <td>litora</td>
-                </tr>
-                <tr>
-                    <td>1,013</td>
-                    <td>torquent</td>
-                    <td>per</td>
-                    <td>conubia</td>
-                    <td>nostra</td>
-                </tr>
-                <tr>
-                    <td>1,014</td>
-                    <td>per</td>
-                    <td>inceptos</td>
-                    <td>himenaeos</td>
-                    <td>Curabitur</td>
-                </tr>
-                <tr>
-                    <td>1,015</td>
-                    <td>sodales</td>
-                    <td>ligula</td>
-                    <td>in</td>
-                    <td>libero</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        </div>
+            @endforeach
+            </tbody>
+        </table>
     </div>
+    {!! $climbs->render() !!}
 @stop

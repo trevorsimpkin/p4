@@ -18,6 +18,7 @@ class UsersTableSeeder extends Seeder
         $user->password = \Hash::make('helloworld');
         $user->climbing_style = 'Bouldering';
         $user->location = 'NorthWest';
+        $user->profile = '';
             $user->save();
 
         $user = \p4\User::firstOrCreate(['email' => 'jamal@harvard.edu']);
@@ -26,6 +27,7 @@ class UsersTableSeeder extends Seeder
         $user->password = \Hash::make('helloworld');
         $user->climbing_style = 'Trad';
         $user->location = 'NorthEast';
+        $user->profile = '';
             $user->save();
 
     }
