@@ -15,10 +15,18 @@ class WelcomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getIndex() {
-        $climbs = \p4\Climb::orderBy('date_climbed','ascending')->paginate(3);
-        return view('welcome')->
-        with(['climbs'=>$climbs,
-        ]);
+        //$climbs = \p4\Climb::orderBy('date_climbed','ascending')->paginate(3);
+        if(\Auth::check()) {
+            $user = \Auth::user();
+            return view('welcome')->
+            with(['user'=>$user,
+            ]);
+        }
+        else {
+            return view('welcome');
+        }
     }
+
+        
 
 }

@@ -23,6 +23,21 @@ class ClimbController extends Controller
                 'climbs'=>$climbs,
         ]);
     }
+    public function getShow($id = null) {
+        $climb = \p4\Climb::find($id);
+        $user = \Auth::user();
+        if (is_null($climb)) {
+            \Session::flash('flash_message', 'Climb not found.');
+            return redirect('/');
+        }
+        $exists = $user->climbs->contains($id);
+        return view('climbs.show')
+            ->with([
+                'climb' => $climb,
+                'user' => $user,
+                'exists' => $exists,
+            ]);
+    }
     public function getEdit($id = null) {
         $climb = \p4\Climb::find($id);
         if(is_null($climb)) {
@@ -55,6 +70,8 @@ class ClimbController extends Controller
     public function getCreate() {
         return view('climbs.create');
     }
+
+
     public function postCreate(Request $request) {
         $this->validate(
             $request,
@@ -87,6 +104,40 @@ class ClimbController extends Controller
             return redirect('/');
         }
         return view('climbs.delete')-> with('climb', $climb);
+    }
+    public function getAdmin($id = null) {
+        $climb = \p4\Climb::find($id);
+        if(is_null($climb)) {
+            \Session::flash('flash_message','Climb not found.');
+            return redirect('/');
+        }
+        if($climb->administrator != \Auth::id()) {
+            \Session::flash('flash_message','You are not the administrator of this climb.');
+            return redirect('/');
+        }
+        return view('climbs.admin')
+            ->with([
+                'climb' => $climb,
+            ]);
+    }
+    public function postAdmin(Request $request) {
+        $this->validate(
+            $request,
+            [
+                'administrator' => 'required',
+            ]
+        );
+        $newAdmin = $request->administrator;
+        $climb = \p4\Climb::find($request->id);
+        $user = \p4\User::where('username', $newAdmin)->first();
+        if(is_null($user)) {
+            \Session::flash('flash_message','User does not exist.');
+            return redirect('/');
+        }
+        $id = $user->id;
+        $climb ->administrator = $id;
+        $climb->save();
+        return redirect('/');
     }
 
     /**

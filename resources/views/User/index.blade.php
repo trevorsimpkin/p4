@@ -25,6 +25,7 @@
                 <th>Safety Rating</th>
                 <th>Date Climbed</th>
                 <th>Administrator?</th>
+                <th>    </th>
             </tr>
             </thead>
             <tbody>
@@ -41,6 +42,7 @@
                     @else
                         <td>No</td>
                     @endif
+                    <td><a href ="/user/removeclimb/{{$climb->id}}">Remove?</a></td>
                 </tr>
             @endforeach
             </tbody>

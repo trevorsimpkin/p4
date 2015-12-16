@@ -19,6 +19,7 @@
                 <th><a href="/climbs?sort=location">Location</a></th>
                 <th><a href="/climbs?sort=safety_rating">Safety Rating</a></th>
                 <th><a href="/climbs?sort=date_climbed">Date Climbed</a></th>
+                <th>Add To your Climb?</th>
             </tr>
             </thead>
             <tbody>
@@ -30,6 +31,7 @@
                     <td>{{$climb->location}}</td>
                     <td>{{$climb->safety_rating}}</td>
                     <td>{{$climb->date_climbed}}</td>
+                    <td><a href ="/user/addclimb/{{$climb->id}}">+</a></td>
             </tr>
             @endforeach
             </tbody>

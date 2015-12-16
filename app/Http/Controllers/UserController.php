@@ -25,4 +25,34 @@ class UserController extends Controller
         ]);
     }
 
+    public function getAddClimb($id = null) {
+        $climb = \p4\Climb::find($id);
+        $user = \Auth::user();
+        $url = '/user/'.$user->id;
+        $exists = $user->climbs->contains($id);
+        if ($exists) {
+
+            \Session::flash('flash_message','You already have added this climb.');
+            return redirect($url);
+        }
+        $user->climbs()->save($climb);
+        \Session::flash('flash_message','Your climb was added!');
+        return redirect($url);
+    }
+
+    public function getRemoveClimb($id = null) {
+        $climb = \p4\Climb::find($id);
+        $user = \Auth::user();
+        $url = '/user/'.$user->id;
+        $exists = $user->climbs->contains($id);
+        if (!$exists) {
+            \Session::flash('flash_message', 'You have not added this climb.');
+            return redirect($url);
+        }
+        $user->climbs()->detach($climb);
+        $url = '/user/'.$user->id;
+        \Session::flash('flash_message','The climb was removed from your climbs');
+        return redirect($url);
+    }
+
 }

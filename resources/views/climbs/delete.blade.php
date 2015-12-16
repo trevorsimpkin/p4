@@ -12,9 +12,11 @@
     <p>
         Are you sure you want to delete <em>{{$climb->title}}</em>?
     </p>
-
     <p>
-        <a href='/climb/delete/{{$climb->id}}'>Yes.</a>
+        You can also <a href = '/climbs/admin/{{$climb->id}}'>give administrator priviliges to another user.</a>
+    </p>
+    <p>
+        <a href='/climbs/delete/{{$climb->id}}'>I want this climb gone FOREVER!</a>
     </p>
     <p>
         <a href='/'>WAIT! I made a HUGE mistake.</a>
