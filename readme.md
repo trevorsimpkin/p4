@@ -1,27 +1,24 @@
-## Laravel PHP Framework
+# Dynamic Web Apps Portfolio
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## Live URL
+<http://p4.trevorsimpkin.com>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## Description
+A web application that enables users to login and store climbs that they have completed. They can also browse climbs
+that other users have added and add climbs to their own climbs' list. Administrators of climbs are users that have
+added the climb or have been given administrator priviliges for a specific climb. Only administrators can edit or
+delete a climb. A user can upload a profile photo, reset their password, create new climbs, edit their profile, add
+and remove climbs from their list, browse all climbs, edit and delete climbs that they are the administrator, and pass
+administrator privileges to other users if they are the administrator of a climb.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## Demo
+http://screencast.com/t/jiv3M3UPOxNJ
 
-## Official Documentation
+## Details for teaching team
+I've noticed that if a larger image is uploaded then Laravel rotates it during the upload. I could not find an easy way
+to fix this problem.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+## Outside code
+* Bootstrap: http://getbootstrap.com/
+* Bootstrap Theme: http://getbootstrap.com/examples/offcanvas/
+* Bootstrap Theme #2: http://getbootstrap.com/examples/dashboard/
