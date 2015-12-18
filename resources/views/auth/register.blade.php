@@ -19,7 +19,7 @@
         {!! csrf_field() !!}
         <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" name='email'class="form-control" id="email" value='{{ old('email') }}'>
+            <input type="email" name='email' class="form-control" id="email" value='{{ old('email') }}'>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
@@ -31,7 +31,7 @@
         </div>
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" name='username'class="form-control" id="username" value='{{old('username')}}'>
+            <input type="text" name='username' class="form-control" id="username" value='{{old('username')}}'>
         </div>
         <div class="form-group">
             <label for="climbing_style">Preffered Climbing Style</label>

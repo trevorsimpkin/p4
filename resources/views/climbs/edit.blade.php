@@ -24,7 +24,7 @@
 
         <div class="form-group">
             <label for="title">Title of Climb</label>
-            <input type="text" name='title'class="form-control" id="title" value='{{ $climb->title }}'>
+            <input type="text" name='title' class="form-control" id="title" value='{{ $climb->title }}'>
         </div>
         <div class="form-group">
             <label for="difficulty">Difficulty(e.g. V6, 5.10a, etc. )</label>
@@ -92,7 +92,7 @@
         </div>
         <div class="form-group">
             <label for="date_climbed">Date Climbed</label>
-            <input type="date" name='date_climbed'class="form-control" id="date_climbed" value='{{ $climb->date_climbed }}'>
+            <input type="date" name='date_climbed' class="form-control" id="date_climbed" value='{{ $climb->date_climbed }}'>
         </div>
         <div class="form-group">
             <label for="location">Choose a region that you climb in the most. </label>
@@ -106,7 +106,7 @@
         </div>
         <div class="form-group">
             <label for="description">Description (e.g. Best climb in the area, Filled with trash) </label>
-            <textarea name='description'class="form-control" id="description" rows="5">{{ $climb->description }}</textarea>
+            <textarea name='description' class="form-control" id="description" rows="5">{{ $climb->description }}</textarea>
         </div>
         <div class="form-group">
             <label for="type">Climb Type</label>
@@ -120,7 +120,7 @@
         </div>
         <div class="form-group">
             <label for="mountain_project_link">Paste the link to Mountain Project here if it exists </label>
-            <input type="text" name='mountain_project_link'class="form-control" id="mountain_project_link" value='{{ $climb->mountain_project_link }}'>
+            <input type="text" name='mountain_project_link' class="form-control" id="mountain_project_link" value='{{ $climb->mountain_project_link }}'>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>

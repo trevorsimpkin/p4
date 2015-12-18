@@ -22,7 +22,7 @@
 
         <div class="form-group">
             <label for="administrator">Please Enter Climb Keeper username of new administrator</label>
-            <input type="text" name='administrator'class="form-control" id="administrator">
+            <input type="text" name='administrator' class="form-control" id="administrator">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
