@@ -13,7 +13,7 @@
             <div class="col-xs-6 col-sm-3 placeholder">
                 <img src='/uploads/{{$user->profile}}' width="100" height="100" class="img-responsive" alt="Profile Picture">
                 <h4>Climbing Style: {{$user->climbing_style}}</h4>
-                <span class="text-muted">Location: {{$user->location}}</span>
+                <p class="text-muted">Location: {{$user->location}}</p>
                 <p><a href="/user/edit/{{$user->id}}}">EDIT PROFILE</a></p>
             </div>
         </div>
