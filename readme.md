@@ -12,7 +12,7 @@ and remove climbs from their list, browse all climbs, edit and delete climbs tha
 administrator privileges to other users if they are the administrator of a climb.
 
 ## Demo
-http://screencast.com/t/jiv3M3UPOxNJ
+http://screencast.com/t/eIk8FvBwj
 
 ## Details for teaching team
 I've noticed that if a larger image is uploaded then Laravel rotates it during the upload. I could not find an easy way
