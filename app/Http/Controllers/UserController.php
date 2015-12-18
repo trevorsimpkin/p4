@@ -100,6 +100,11 @@ class UserController extends Controller
             \Session::flash('flash_message', 'You have not added this climb.');
             return redirect($url);
         }
+        else if ($climb->administrator == $user->id) {
+                \Session::flash('flash_message', 'Cannot Remove this climb. You are the administrator of this climb. You must pass administrator
+                                privileges or delete climb.');
+                return redirect($url);
+        }
         $user->climbs()->detach($climb);
         $url = '/user/'.$user->id;
         \Session::flash('flash_message','The climb was removed from your climbs');

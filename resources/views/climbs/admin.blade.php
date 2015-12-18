@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <h2>Edit The Climb!</h2>
+    <h1>Designate new administrator of {{$climb->title}}</h1><br>
     @if(count($errors) > 0)
         <ul class='errors'>
             @foreach ($errors->all() as $error)

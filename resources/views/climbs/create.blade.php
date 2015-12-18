@@ -101,7 +101,7 @@
         </div>
         <div class="form-group">
             <label for="description">Description (e.g. Best climb in the area, Filled with trash) </label>
-            <input type="text" name='description'class="form-control" id="description" value='{{old('description')}}'>
+            <textarea name='description'class="form-control" id="description" rows="5">{{ $climb->description }}</textarea>
         </div>
         <div class="form-group">
             <label for="type">Climb Style</label>
@@ -116,10 +116,6 @@
         <div class="form-group">
             <label for="mountain_project_link">Paste the link to Mountain Project here if it exists </label>
             <input type="text" name='mountain_project_link'class="form-control" id="mountain_project_link" value='{{old('mountain_project_link')}}'>
-        </div>
-        <div class="form-group">
-            <label for="pic">Upload a picture of the climb</label>
-            <input type="file" name='pic' id="pic">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>

@@ -61,7 +61,6 @@ class ClimbController extends Controller
         $climb->type = $request->type;
         $climb->description = $request->description;
         $climb->mountain_project_link = $request->mountain_project_link;
-        $climb->pic = $request->pic;
         $climb->save();
         $url = '/user/'.\Auth::id();
         \Session::flash('flash_message','Your climb was edited!');
@@ -92,7 +91,6 @@ class ClimbController extends Controller
         $climb->type = $request->type;
         $climb->description = $request->description;
         $climb->mountain_project_link = $request->mountain_project_link;
-        $climb->pic = $request->pic;
         $climb->save();
         $user = \Auth::user();
         $user->climbs()->save($climb);

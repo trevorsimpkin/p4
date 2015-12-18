@@ -15,7 +15,8 @@
             @endforeach
         </ul>
     @endif
-    <h3><a href = '/climbs/confirm-delete/{{$climb->id}}'>Would you Like to Delete This Climb?</a></h3>
+    <h4><a href = '/climbs/confirm-delete/{{$climb->id}}'>Would you Like to Delete This Climb?</a></h4>
+    <h4><a href = '/climbs/admin/{{$climb->id}}'>Or give administrator privileges to another user?</a></h4>
     <form method='POST' action='/climbs/edit'>
         <input type='hidden' value='{{ csrf_token() }}' name='_token'>
 
@@ -120,10 +121,6 @@
         <div class="form-group">
             <label for="mountain_project_link">Paste the link to Mountain Project here if it exists </label>
             <input type="text" name='mountain_project_link'class="form-control" id="mountain_project_link" value='{{ $climb->mountain_project_link }}'>
-        </div>
-        <div class="form-group">
-            <label for="pic">Upload a picture of the climb</label>
-            <input type="file" name='pic' id="pic">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
