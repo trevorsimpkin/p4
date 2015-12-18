@@ -77,7 +77,7 @@ class UserController extends Controller
         $user = \Auth::user();
         $url = '/user/'.$user->id;
         $exists = $user->climbs->contains($id);
-        if ($exist3s) {
+        if ($exists) {
 
             \Session::flash('flash_message','You already have added this climb.');
             return redirect($url);
