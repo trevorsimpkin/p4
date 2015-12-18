@@ -32,7 +32,7 @@
         <div class="jumbotron">
             <h1 class="page-header">Climb Keeper</h1>
             <p>A place to keep track of all your climbing accomplishments!</p>
-        </div>f
+        </div>
         <div class="row">
             <div class="col-xs-6 col-lg-4">
                 <h2><a href="/climbs">Browse Climb Keeper</a></h2>
