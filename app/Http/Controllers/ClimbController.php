@@ -137,7 +137,13 @@ class ClimbController extends Controller
         }
         $id = $user->id;
         $climb ->administrator = $id;
-        $climb->save();
+        $exists = $user->climbs->contains($climb->id);
+        if(!$exists) {
+            $user->climbs()->save($climb);
+        }
+        else {
+            $climb->save();
+        }
         \Session::flash('flash_message','Administrator privileges reassigned.');
         return redirect('/');
     }
