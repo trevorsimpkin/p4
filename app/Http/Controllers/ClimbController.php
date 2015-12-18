@@ -138,6 +138,7 @@ class ClimbController extends Controller
         $id = $user->id;
         $climb ->administrator = $id;
         $climb->save();
+        \Session::flash('flash_message','Administrator privileges reassigned.');
         return redirect('/');
     }
 
