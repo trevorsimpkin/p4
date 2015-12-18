@@ -90,10 +90,11 @@
             <input type="date" name='date_climbed' class="form-control" id="date_climbed" value='{{old('date_climbed')}}'>
         </div>
         <div class="form-group">
-            <label for="location">Choose a region that you climb in the most. </label>
+            <label for="location">Region of Climb </label>
             <select class="form-control" name ='location' id="location">
                 <option value="Northwest" {{old('location') == 'Northwest' ? 'selected="selected"': ''}}> Northwest</option>
-                <option value="Southwest" {{old('location') == 'Southwest' ? 'selected="selected"': ''}}>Sothwest</option>
+                <option value="West" {{old('location') == 'West' ? 'selected="selected"': ''}}>West</option>
+                <option value="Southwest" {{old('location') == 'Southwest' ? 'selected="selected"': ''}}>Southwest</option>
                 <option value="South" {{old('location') == 'South' ? 'selected="selected"': ''}}>South</option>
                 <option value="Midwest" {{old('location') == 'Midwest' ? 'selected="selected"': ''}}>Midwest</option>
                 <option value="Northeast" {{old('location') == 'Northeast' ? 'selected="selected"': ''}}>Northeast</option>
@@ -111,6 +112,7 @@
                 <option value="Free Solo" {{old('type') == 'Free Solo' ? 'selected="selected"':''}}>Free Solo</option>
                 <option value="Sport" {{old('type') == 'Sport' ? 'selected="selected"':''}}>Sport</option>
                 <option value="Trad" {{old('type') == 'Trad' ? 'selected="selected"':''}}>Traditional</option>
+                <option value="Top Rope" {{old('type') == 'Top Rope' ? 'selected="selected"':''}}>Top Rope</option>
             </select>
         </div>
         <div class="form-group">

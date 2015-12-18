@@ -17,7 +17,6 @@ class ClimbController extends Controller
     public function getIndex(Request $request) {
         $sort = $request->input('sort','date_climbed');
         $climbs = \p4\Climb::orderBy($sort,'ascending')->paginate(10);
-
         return view('climbs.index')
             ->with([
                 'climbs'=>$climbs,

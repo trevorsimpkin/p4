@@ -95,13 +95,14 @@
             <input type="date" name='date_climbed' class="form-control" id="date_climbed" value='{{ $climb->date_climbed }}'>
         </div>
         <div class="form-group">
-            <label for="location">Choose a region that you climb in the most. </label>
+            <label for="location">Region of Climb </label>
             <select class="form-control" name ='location' id="location">
-                <option value="Northwest" {{$climb->location == 'Northwest' ? 'selected="selected"': ''}}> Northwest</option>
-                <option value="Southwest" {{$climb->location == 'Southwest' ? 'selected="selected"': ''}}>Sothwest</option>
-                <option value="South" {{$climb->location == 'South' ? 'selected="selected"': ''}}>South</option>
-                <option value="Midwest" {{$climb->location == 'Midwest' ? 'selected="selected"': ''}}>Midwest</option>
-                <option value="Northeast" {{$climb->location == 'Northeast' ? 'selected="selected"': ''}}>Northeast</option>
+                <option value="Northwest" {{old('location') == 'Northwest' ? 'selected="selected"': ''}}> Northwest</option>
+                <option value="West" {{old('location') == 'West' ? 'selected="selected"': ''}}>West</option>
+                <option value="Southwest" {{old('location') == 'Southwest' ? 'selected="selected"': ''}}>Southwest</option>
+                <option value="South" {{old('location') == 'South' ? 'selected="selected"': ''}}>South</option>
+                <option value="Midwest" {{old('location') == 'Midwest' ? 'selected="selected"': ''}}>Midwest</option>
+                <option value="Northeast" {{old('location') == 'Northeast' ? 'selected="selected"': ''}}>Northeast</option>
             </select>
         </div>
         <div class="form-group">
@@ -116,6 +117,7 @@
                 <option value="Free Solo" {{$climb->type == 'Free Solo' ? 'selected="selected"':''}}>Free Solo</option>
                 <option value="Sport" {{$climb->type == 'Sport' ? 'selected="selected"':''}}>Sport</option>
                 <option value="Trad" {{$climb->type == 'Trad' ? 'selected="selected"':''}}>Traditional</option>
+                <option value="Top Rope" {{old('type') == 'Top Rope' ? 'selected="selected"':''}}>Top Rope</option>
             </select>
         </div>
         <div class="form-group">

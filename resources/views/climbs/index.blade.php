@@ -18,7 +18,7 @@
                 <th><a href="/climbs?sort=type">Type of Climb</a></th>
                 <th><a href="/climbs?sort=location">Location</a></th>
                 <th><a href="/climbs?sort=safety_rating">Safety Rating</a></th>
-                <th><a href="/climbs?sort=date_climbed">Date Climbed</a></th>
+                <th><a href="/climbs?sort=date_climbed">Date Climbed by Admin</a></th>
                 <th>Add To your Climb?</th>
                 <th>Mountain Project Link</th>
             </tr>
