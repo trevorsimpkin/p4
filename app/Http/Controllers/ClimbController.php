@@ -53,6 +53,14 @@ class ClimbController extends Controller
             ]);
     }
     public function postEdit(Request $request) {
+        $regex ="#^https?://([a-z0-9-]+\.)*mountainproject\.com(/.*)?$#";
+        $this->validate(
+            $request,
+            [
+                'title' => 'required|unique:climbs',
+                'difficulty' => 'required',
+                "mountain_project_link" => array("regex:".$regex)
+            ]
         $climb = \p4\Climb::find($request->id);
         $climb->title = $request->title;
         $climb->difficulty = $request->difficulty;
