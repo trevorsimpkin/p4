@@ -8,10 +8,11 @@
 @stop
 
 @section('content')
+
     @if(Auth::check())
         <div class="jumbotron">
             <h1 class="page-header">Climb Keeper</h1>
-                <p>Welcome, <strong>{{$user->username}}</strong></p>
+                <p>Welcome, {{$user->username}}</p>
         </div>
         <div class="row">
             <div class="col-xs-6 col-lg-4">

@@ -10,9 +10,9 @@ use p4\Http\Controllers\Controller;
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display profile page of user.
      *
-     * @return \Illuminate\Http\Response
+     * @return user.index with user
      */
     public function getIndex($id=null) {
         $user = \Auth::user();
@@ -24,7 +24,54 @@ class UserController extends Controller
         with(['user'=>$user,
         ]);
     }
-
+    /**
+     * Display edit profile view w
+     *
+     * @return user.edit with user
+     */
+    public function getEdit($id=null) {
+        $user = \Auth::user();
+        if ($user->id==$id) {
+            return view('user.edit')
+                ->with([
+                    'user' => $user,
+                ]);
+        }
+        else {
+            \Session::flash('flash_message','There was an error accessing this page.');
+            return redirect('/');
+        }
+    }
+    /**
+     * Stores edited fields and calls helper function
+     * addPicture to store photo. If photo is not added
+     * nothing is uploaded and profile photo stays the same
+     *
+     * @return redirect to user profile
+     */
+    public function postEdit(Request $request) {
+        $this->validate(
+            $request,
+            [
+                'profile'=>'image',
+            ]
+        );
+        $user = \Auth::user();
+        $user-> climbing_style = $request->climbing_tyle;
+        $user->location = $request->location;
+        $fileName = $user->profile;
+        $fileName = \helpers::addPicture('profile', $fileName);
+        $user->profile = $fileName;
+        $user->save();
+        $url = '/user/'.\Auth::id();
+        \Session::flash('flash_message','Your profile was edited!');
+        return redirect($url);
+    }
+    /**
+     * Adds a climb to user's climbs.
+     *
+     * @return redirect to user profile
+     */
     public function getAddClimb($id = null) {
         $climb = \p4\Climb::find($id);
         $user = \Auth::user();
@@ -39,7 +86,11 @@ class UserController extends Controller
         \Session::flash('flash_message','Your climb was added!');
         return redirect($url);
     }
-
+    /**
+     * Removes a climb from user's climbs.
+     *
+     * @return redirect to user profile
+     */
     public function getRemoveClimb($id = null) {
         $climb = \p4\Climb::find($id);
         $user = \Auth::user();

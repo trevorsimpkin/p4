@@ -15,25 +15,25 @@ class ClimbsTableSeeder extends Seeder
         $climb = \p4\Climb::firstOrCreate(['title' => 'Blah Blah Climb']);
         $climb->difficulty = '5.14c';
         $climb->safety_rating = 'PG';
-        $climb->date_climbed = '2015.12.25';
+        $climb->date_climbed = '2015-12-25';
         $climb->description = 'Ten pitches of heaven.';
-        $climb->location = 'I will never tellll';
+        $climb->location = 'Northwest';
         $climb->type = 'Trad';
         $climb->administrator = '1';
         $climb->mountain_project_link = 'https://www.mountainproject.com/v/high-exposure/105798994';
-        $climb->pic = 'http://moveoveraverage.com/wp-content/uploads/2014/08/climb-1.jpg';
+        $climb->pic = 'generic.jpg';
         $climb->save();
 
         $climb = \p4\Climb::firstOrCreate(['title' => 'Crazy']);
         $climb->difficulty = 'V9';
         $climb->safety_rating = 'NA';
-        $climb->date_climbed = '2015.12.25';
+        $climb->date_climbed = '2015-12-25';
         $climb->description = 'Best climb on the planet.';
-        $climb->location = 'Just off I-90 at exit 29. 20 mile hike through poison ivy.';
+        $climb->location = 'Southwest';
         $climb->type = 'Bouldering';
         $climb->administrator = '2';
         $climb->mountain_project_link = 'https://www.mountainproject.com/v/high-exposure/105798994';
-        $climb->pic = 'http://moveoveraverage.com/wp-content/uploads/2014/08/climb-1.jpg';
+        $climb->pic = 'generic.jpg';
         $climb->save();
 
     }

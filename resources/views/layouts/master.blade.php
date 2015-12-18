@@ -48,12 +48,10 @@
                         <li><a href='/'>Home</a></li>
                         <li><a href='/climbs'>Browse Climbs</a></li>
                         <li><a href='/logout'>Log out</a></li>
-                        <li><a href='/help'>Help</a></li>
                     @else
                         <li><a href='/register'>Register</a></li>
                         <li><a href='/login'>Login</a></li>
                         <li><a href='/climbs'>Browse Climbs</a></li>
-                        <li><a href='/help'>Help</a></li>
                     @endif
                 </ul>
             </div>
@@ -91,12 +89,16 @@
                     <li><a href="https://github.com/trevorsimpkin/p4">PROJECT 4 (GITHUB)</a></li>
                 </ul>
             </div>
+
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 @if(Session::get('flash_message') != null)
                     <div class="alert alert-info"><em>{{ Session::get('flash_message') }}</em></div>
-                @endif
-                    @yield('content')
 
+                @endif
+                @yield('content')
+            </div>
+        </div>
+    </div>
 
 
     <!-- Bootstrap core JavaScript

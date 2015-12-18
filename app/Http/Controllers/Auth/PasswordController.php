@@ -7,6 +7,9 @@ use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller
 {
+    protected $loginPath = '/login';
+    protected $redirectPath = '/';
+    protected $redirectAfterLogout = '/';
     /*
     |--------------------------------------------------------------------------
     | Password Reset Controller

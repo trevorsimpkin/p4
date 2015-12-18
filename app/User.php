@@ -41,4 +41,5 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->belongsToMany('\p4\Climb')->withTimestamps();
     }
+
 }

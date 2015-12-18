@@ -17,18 +17,18 @@ class UsersTableSeeder extends Seeder
         $user->email = 'jill@harvard.edu';
         $user->password = \Hash::make('helloworld');
         $user->climbing_style = 'Bouldering';
-        $user->location = 'NorthWest';
-        $user->profile = '';
-            $user->save();
+        $user->location = 'Northwest';
+        $user->profile = 'generic.jpg';
+        $user->save();
 
         $user = \p4\User::firstOrCreate(['email' => 'jamal@harvard.edu']);
         $user->username = 'Jamal';
         $user->email = 'jamal@harvard.edu';
         $user->password = \Hash::make('helloworld');
         $user->climbing_style = 'Trad';
-        $user->location = 'NorthEast';
-        $user->profile = '';
-            $user->save();
+        $user->location = 'Northeast';
+        $user->profile = 'generic.jpg';
+        $user->save();
 
     }
 }

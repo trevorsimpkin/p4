@@ -26,7 +26,7 @@
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                 <input type='checkbox' name='remember' id='remember'>
                 <label for='remember' class='checkboxLabel'>Remember me</label>
-                <p><a href="#">Forgot Password?</a></p>
+                <p><a href="/password/email">Forgot Password?</a></p>
                 <p>Don't have an account? <a href='/register'>Register here...</a></p>
             </form>
         </div>

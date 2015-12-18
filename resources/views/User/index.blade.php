@@ -7,18 +7,22 @@
 @stop
 
 @section('content')
-    <h1>Welcome, {{$user->username}}!</h1>
-    <div class="row placeholders">
-        <div class="col-xs-6 col-sm-3 placeholder">
-            <img src="/uploads/{{$user->profile}}" width="200" height="200" class="img-responsive" alt="Profile Picture">
+        <h1 class="page-header">Welcome, {{$user->username}}!</h1>
+
+        <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+                <img src='/uploads/{{$user->profile}}' width="100" height="100" class="img-responsive" alt="Profile Picture">
+                <h4>Climbing Style: {{$user->climbing_style}}</h4>
+                <span class="text-muted">Location: {{$user->location}}</span>
+                <p><a href="/user/edit/{{$user->id}}}">EDIT PROFILE</a></p>
+            </div>
         </div>
-    </div>
     <h2 class="sub-header">Your Climbs</h2>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>Title</th>
+                <th>Title (Click to Edit)</th>
                 <th>Difficulty</th>
                 <th>Type of Climb</th>
                 <th>Location</th>

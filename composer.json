@@ -20,13 +20,17 @@
         ],
         "psr-4": {
             "p4\\": "app/"
-        }
+        },
+        "files": [
+            "app/Support/helpers.php"
+        ]
     },
     "autoload-dev": {
         "classmap": [
             "tests/TestCase.php"
         ]
     },
+
     "scripts": {
         "post-install-cmd": [
             "php artisan clear-compiled",

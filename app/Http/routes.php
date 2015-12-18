@@ -23,6 +23,10 @@ Route::get('/logout', 'Auth\AuthController@getLogout');
 
 # Show registration form
 Route::get('/register', 'Auth\AuthController@getRegister');
+Route::get('password/email', 'Auth\PasswordController@getEmail');
+Route::post('password/email', 'Auth\PasswordController@postEmail');
+Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('password/reset', 'Auth\PasswordController@postReset');
 Route::get('/climbs', 'ClimbController@getIndex');
 # Process registration form
 Route::post('/register', 'Auth\AuthController@postRegister');
@@ -30,6 +34,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/user/{id?}', 'UserController@getIndex');
     Route::get('/user/addclimb/{id?}', 'UserController@getAddClimb');
     Route::get('/user/removeclimb/{id?}', 'UserController@getRemoveClimb');
+    Route::get('/user/edit/{id?}', 'UserController@getEdit');
+    Route::post('/user/edit/', 'UserController@postEdit');
     Route::get('/climbs/show/{id?}', 'ClimbController@getShow');
     Route::get('/climbs/create', 'ClimbController@getCreate');
     Route::post('/climbs/create', 'ClimbController@postCreate');
@@ -39,6 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/climbs/delete/{id?}', 'ClimbController@getDoDelete');
     Route::get('/climbs/admin/{id?}', 'ClimbController@getAdmin');
     Route::post('/climbs/admin/', 'ClimbController@postAdmin');
+
 
 
 });

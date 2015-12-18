@@ -46,11 +46,11 @@
         <div class="form-group">
             <label for="location">Choose a region that you climb in the most. </label>
             <select class="form-control" name ='location' id="location">
-                <option value="nw">NW</option>
-                <option value="sw">SW</option>
-                <option value="s">South</option>
-                <option value="mw">Midwest</option>
-                <option value="ne">NorthEast</option>
+                <option value="NorthWest">NW</option>
+                <option value="SouthWest">SW</option>
+                <option value="South">South</option>
+                <option value="MidWest">Midwest</option>
+                <option value="NorthEast">NorthEast</option>
             </select>
         </div>
         <div class="form-group">

@@ -16,7 +16,7 @@ class ClimbController extends Controller
 
     public function getIndex(Request $request) {
         $sort = $request->input('sort','date_climbed');
-        $climbs = \p4\Climb::orderBy($sort,'ascending')->paginate(3);
+        $climbs = \p4\Climb::orderBy($sort,'ascending')->paginate(10);
 
         return view('climbs.index')
             ->with([
@@ -73,11 +73,13 @@ class ClimbController extends Controller
 
 
     public function postCreate(Request $request) {
+        $regex ="#^https?://([a-z0-9-]+\.)*mountainproject\.com(/.*)?$#";
         $this->validate(
             $request,
             [
-                'title' => 'required',
+                'title' => 'required|unique:climbs',
                 'difficulty' => 'required',
+                "mountain_project_link" => array("regex:".$regex)
             ]
         );
         $climb = new \p4\Climb();
@@ -94,8 +96,9 @@ class ClimbController extends Controller
         $climb->save();
         $user = \Auth::user();
         $user->climbs()->save($climb);
+        $url = '/user/'.$user->id;
         \Session::flash('flash_message','Your climb was added!');
-        return redirect('/');
+        return redirect($url);
     }
     public function getConfirmDelete($climb_id) {
         $climb = \p4\Climb::find($climb_id);
