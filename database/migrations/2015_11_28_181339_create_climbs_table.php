@@ -30,7 +30,6 @@ class CreateClimbsTable extends Migration
             $table->string('location');
             $table->string('description');
             $table->string('type');
-            $table->string('pic');
             $table->string('administrator');
             $table->string('mountain_project_link');
 

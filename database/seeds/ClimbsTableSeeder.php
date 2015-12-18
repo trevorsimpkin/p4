@@ -21,7 +21,6 @@ class ClimbsTableSeeder extends Seeder
         $climb->type = 'Trad';
         $climb->administrator = '1';
         $climb->mountain_project_link = 'https://www.mountainproject.com/v/high-exposure/105798994';
-        $climb->pic = 'generic.jpg';
         $climb->save();
 
         $climb = \p4\Climb::firstOrCreate(['title' => 'Crazy']);
@@ -33,7 +32,6 @@ class ClimbsTableSeeder extends Seeder
         $climb->type = 'Bouldering';
         $climb->administrator = '2';
         $climb->mountain_project_link = 'https://www.mountainproject.com/v/high-exposure/105798994';
-        $climb->pic = 'generic.jpg';
         $climb->save();
 
     }
