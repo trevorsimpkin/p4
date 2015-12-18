@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <h2>Edit The Climb!</h2>
+    <h2>Edit {{ $climb->title }}!</h2>
     @if(count($errors) > 0)
         <ul class='errors'>
             @foreach ($errors->all() as $error)
@@ -22,10 +22,6 @@
 
         <input type='hidden' name='id' value='{{ $climb->id }}'>
 
-        <div class="form-group">
-            <label for="title">Title of Climb</label>
-            <input type="text" name='title' class="form-control" id="title" value='{{ $climb->title }}'>
-        </div>
         <div class="form-group">
             <label for="difficulty">Difficulty(e.g. V6, 5.10a, etc. )</label>
             <select class = "form-control" name="difficulty" id="difficulty">

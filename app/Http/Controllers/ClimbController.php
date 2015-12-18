@@ -57,13 +57,11 @@ class ClimbController extends Controller
         $this->validate(
             $request,
             [
-                'title' => 'required|unique:climbs',
                 'difficulty' => 'required',
                 "mountain_project_link" => array("regex:".$regex)
             ]
         );
         $climb = \p4\Climb::find($request->id);
-        $climb->title = $request->title;
         $climb->difficulty = $request->difficulty;
         $climb->location = $request->location;
         $climb->type = $request->type;
