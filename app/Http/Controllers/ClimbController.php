@@ -58,6 +58,7 @@ class ClimbController extends Controller
         $climb->difficulty = $request->difficulty;
         $climb->location = $request->location;
         $climb->type = $request->type;
+        $climb->safety_rating = $request->safety_rating;
         $climb->description = $request->description;
         $climb->mountain_project_link = $request->mountain_project_link;
         $climb->save();
