@@ -57,7 +57,7 @@ class UserController extends Controller
             ]
         );
         $user = \Auth::user();
-        $user-> climbing_style = $request->climbing_tyle;
+        $user-> climbing_style = $request->climbing_style;
         $user->location = $request->location;
         $fileName = $user->profile;
         $fileName = \helpers::addPicture('profile', $fileName);
