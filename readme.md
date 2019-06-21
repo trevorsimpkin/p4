@@ -1,7 +1,7 @@
 # Dynamic Web Apps Portfolio
 
 ## Live URL
-<http://p4.trevorsimpkin.com>
+Took down live site, however, you can watch screencast below for demo. This was a project for Dynamic Web Apps class. Also see p1, p2, and p3. 
 
 ## Description
 A web application that enables users to login and store climbs that they have completed. They can also browse climbs
